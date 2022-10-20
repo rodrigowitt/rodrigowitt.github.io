@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="icofont/icofont.min.css">
+    <link rel="shortcut icon" href="/img/fav-autoshop.jpg" type="image/x-icon">
+    <title>Home</title>
+</head>
+
+<body>
+    <!-- Navegação por Laila e Nikolas -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-nav-autoshop">
+        <div class="container-fluid navpad">
+            <a class="navbar-brand" href="index.html"><img src="/img/logotipo-branco.png" width="200px"
+                    alt="Logo AutoShop"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icofont-navigation-menu"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre.html">Sobre nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="estoque.html">Estoque</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vendacarro.html">Venda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banners rotativos por Laila -->
+    <div class="row">
+        <div class="col-md-12 col-12">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade pt-5" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="estoque.html"><img src="/img/banner-compramos-seu-carro.jpg" class="d-block w-100" alt="..."></a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="vendacarro.html"><img src="/img/banner-avalicao.jpg" class="d-block w-100" alt="..."></a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="estoque.html"><img src="/img/banner-financie-seu-sonho.jpg" class="d-block w-100" alt="..."></a>
+                    </div>
+                </div>
+                <!-- Controles -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <main>
+
+        <!-- Encontre seu carro por Laila, com funcionalidade do botão por Nikolas e ajustes do Rodrigo-->
+
+        <div class="bgCinza">
+            <div class="container text-center pb-5">
+                <div class="row mx-2">
+                    <div class="container text-center">
+                        <h1 class="mt-5 mb-4">ENCONTRE SEU CARRO</h>
+                    </div>
+                </div>
+
+                <div class="row mx-1">
+                    <div class="col-12 col-md-10">
+                        <input type="text" style="width: 100%;" class="pesquisar" id="pesquisa"
+                            placeholder="Pesquisar marcas ou modelos">
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <button class="btn btn-dark topSpace" id="botao-pesquisa">PESQUISAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carros por Laila -->
+        <div class="container text-center">
+            <!-- Titulo do container -->
+            <h3 class="titulo">ÚLTIMAS NOVIDADES</h3>
+            <!-- Container de veiculos -->
+            <div class="row mx-2">
+                <!-- Veiculo 1 -->
+                <div class="col-sm-4 col-12 pb-5">
+                    <div class="card" style="width: 100%;">
+                        <img class="card-img-top" src="/img/volkswagen-taos.jpg" alt="">
+                        <div class="card-body">
+                            <div class="text-start">
+                                <h5 class="card-title">VOLKSWAGEN TAOS</h5>
+                                <span class="card-text descricao">1.4 250 TSI TOTAL FLEX AUTOMÁTICO</span>
+                                <span class="card-text descricao">2022/2022 | 9.500 km</span><br>
+                                <span class="preco">R$ 174.900</span>
+                            </div>
+                            <div class="text-end">
+                                <a href="#" class="btn btn-outline-dark btn-sm">VER MAIS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Veiculo 2 -->
+                <div class="col-sm-4 col-12 pb-5">
+                    <div class="card" style="width: 100%;">
+                        <img class="card-img-top" src="/img/fiat-mobi.jpg" alt="">
+                        <div class="card-body">
+                            <div class="text-start">
+                                <h5 class="card-title">FIAT MOBI</h5>
+                                <span class="card-text descricao">1.0 EVO FLEX LIKE. MANUAL</span>
+                                <span class="card-text descricao">2019/2020 | 9.000 km</span><br>
+                                <span class="preco">R$ 55.490</span>
+                            </div>
+                            <div class="text-end">
+                                <a href="#" class="btn btn-outline-dark btn-sm">VER MAIS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Veiculo 3 -->
+                <div class="col-sm-4 col-12 pb-5">
+                    <div class="card" style="width: 100%;">
+                        <img class="card-img-top" src="/img/ford-ka.jpg" alt="">
+                        <div class="card-body">
+                            <div class="text-start">
+                                <h5 class="card-title">FORD KA</h5>
+                                <span class="card-text descricao">1.5 TI-VCT FLEX SE PLUS MANUAL</span>
+                                <span class="card-text descricao">2019/2020 | 29.107 km</span><br>
+                                <span class="preco">R$ 77.000</span>
+                            </div>
+                            <div class="text-end">
+                                <a href="#" class="btn btn-outline-dark btn-sm">VER MAIS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="estoque.html" class="btn btn-dark">VER ESTOQUE COMPLETO</a>
+
+            <div class="row pt-5 pb-1">
+                <hr class="linha">
+            </div>
+
+            <!-- Mais procurados por Laila -->
+            <div class="container text-center">
+                <h3 class="titulo">MAIS PROCURADOS</h3>
+                <!-- Container de veiculos -->
+                <div class="row mx-2">
+                    <!-- Veiculo 1 -->
+                    <div class="col-sm-4 col-12 pb-5">
+                        <div class="card" style="width: 100%;">
+                            <img class="card-img-top" src="/img/fiat-argo.jpg" alt="HB20">
+                            <div class="card-body">
+                                <div class="text-start">
+                                    <h5 class="card-title">FIAT ARGO</h5>
+                                    <span class="card-text descricao">1.0 FIREFLY FLEX DRIVE MANUAL</span>
+                                    <span class="card-text descricao">2019/2020 | 49.997 km</span><br>
+                                    <span class="preco">R$ 58.490</span>
+                                </div>
+
+                                <div class="text-end">
+                                    <a href="#" class="btn btn-outline-dark btn-sm">VER MAIS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Veiculo 2 -->
+                    <div class="col-sm-4 col-12 pb-5">
+                        <div class="card" style="width: 100%;">
+                            <img class="card-img-top" src="/img/ford-ecosport.jpg" alt="">
+                            <div class="card-body">
+                                <div class="text-start">
+                                    <h5 class="card-title">FORD ECOSPORT</h5>
+                                    <span class="card-text descricao">2.0 DIRECT FLEX 4WD AUTOMÁTICO</span>
+                                    <span class="card-text descricao">2019/2020 | 52.281 km</span><br>
+                                    <span class="preco">R$ 84.900</span>
+                                </div>
+                                <div class="text-end">
+                                    <a href="#" class="btn btn-outline-dark btn-sm">VER MAIS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Veiculo 3 -->
+                    <div class="col-sm-4 col-12 pb-5">
+                        <div class="card" style="width: 100%;">
+                            <img class="card-img-top" src="/img/volkswagen-fusca.jpg" alt="HB20">
+                            <div class="card-body">
+                                <div class="text-start">
+                                    <h5 class="card-title">VOLKSWAGEN FUSCA</h5>
+                                    <span class="card-text descricao">1.0 UNIQUE 12V FLEX 4P MANUAL</span>
+                                    <span class="card-text descricao">2012/2013 | 94.613 km</span><br>
+                                    <span class="preco">R$ 96.680</span>
+                                </div>
+                                <div class="text-end">
+                                    <a href="#" class="btn btn-outline-dark btn-sm">VER MAIS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="estoque.html" class="btn btn-dark btmSpace">VER ESTOQUE COMPLETO</a>
+            </div>
+        </div>
+
+
+        <!-- Compramos seu veiculo por Laila -->
+        <div class="bgLaranja">
+            <div class="container text-center pb-5">
+                <div class="row">
+                    <h3 class="tituloBranco mt-5 mb-4">Compramos seu veículo sem burocracia e com agilidade!</h3>
+                    <div class="button-box col-lg-12">
+                        <a href="vendacarro.html" class="btn btn-outline-dark" role="button">FAÇA UMA AVALIAÇÃO
+                            GRATUITA</a>
+                        <a href="vendacarro.html" class="btn btn-dark botaoVenda" role="button">VENDA SEU CARRO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Janela modal -->
+    <div class="modal fade" id="janela-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="titulo-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="titulo-modal">Registrar interesse</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" onsubmit="return false;">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nome">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" id="telefone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="endereco" class="form-label">Endereco</label>
+                            <input type="text" class="form-control" id="endereco">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button id="botao-enviar" type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- Footer por Rodrigo -->
+<footer class="text-center text-lg-start bgCinza text-muted pt-1">
+        <div class="container-fluid text-right text-black">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid coluna -->
+            <div class="col-md-3">
+              <!-- logo -->
+                <img src="/img/logotipo-preto.png" class="img-fluid "  alt="Imagem logo">
+            </div>
+            <!-- Coluna do Grid-->
+            <div class="col-md-3">
+              <!-- Textos do Footer -->
+              <h6 class="text-uppercase mb-2 mt-4 tituloFooter"><strong>
+                Horário de Atendimento</strong></h6>
+              <p>Segunda a Sexta das 8:00 as 18:00
+              </p>
+              <p>Sábado das 8:00 as 12:00
+              </p>
+              <h6 class="text-uppercase fw-bold mt-4 tituloFooter">
+                Endereço
+              </h6>
+              <p>Rua 7 de setembro, 1562</p>
+              <p>Blumenau-SC</p>
+              <p>89034-992</p>
+            </div>
+            <!-- Coluna do grid -->
+            <div class="col-md-3">
+              <!-- Textos -->
+              <h6 class="text-uppercase fw-bold mt-4 tituloFooter">
+                Contato
+              </h6>
+              <p>
+                (47) 3367-4560
+              </p>
+              <p>
+                (47) 99614-9202
+              </p>
+              <p>
+                contato@shopauto.com.br
+              </p>
+            </div>
+            <!-- Coluna do Grid -->
+            <div class="col-md-3">
+              <!-- Texto -->
+              <h6 class="text-uppercase fw-bold pr-8 mt-4  tituloFooter">
+                Siga-nos nas redes</h6>
+                <!-- Ícones das redes sociais -->
+                <p><a href=""><i class="bi bi-instagram icone"></i></a>
+                  <a href=""><i class="bi bi-facebook icone"></i></p></a>
+                  <a href=""><img src="/img/whats.png" class="whatslogo"  alt="Logo do Whatsapp"></a>
+                  <div>
+    
+                  </div>
+            </div>
+          </div>
+        </div>
+      <!-- Texto de Copyright -->
+      <div class="text-center text-black p-4" style="background-color: #D6D6D6;">
+        Desenvolvido por © <b>Grupo 2</b> | Todos os direitos reservados
+      </div>
+    </footer>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

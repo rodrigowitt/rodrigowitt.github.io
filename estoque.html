@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="icofont/icofont.min.css">
+    <link rel="shortcut icon" href="/img/fav-autoshop.jpg" type="image/x-icon">
+    <title>Estoque</title>
+</head>
+
+<body>
+    <!-- Navegação por Laila e Nikolas -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-nav-autoshop">
+        <div class="container-fluid navpad">
+            <a class="navbar-brand" href="index.html"><img src="/img/logotipo-branco.png" width="200px"
+                    alt="Logo AutoShop"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="nnavbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icofont-navigation-menu"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre.html">Sobre nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="estoque.html">Estoque</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vendacarro.html">Venda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- filtro -->
+
+    <main>
+        <div class="container">
+            <div class="mt-3 mb-5">
+                <div class="cabecalho-estoque">
+                    <h1>Estoque</h1>
+                    <input type="text" id="pesquisaEstoque" placeholder="Pesquisar marcas ou modelos">
+                    <button id="bt-pesquisa" class="btn btn-dark pesquisa-estoque botoes-estoque">PESQUISAR</button>
+                    <button class="btn border-dark btn-light text-black botoes-estoque" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#filtros-collapse" aria-expanded="false"
+                        aria-controls="filtros-collapse">
+                        FILTRAR
+                    </button>
+                </div>
+            </div>
+
+            <div class="collapse" id="filtros-collapse">
+                <div class="card card-body" style="display: flex;">
+                    <div class="col-sm-4 col-12">
+                        <h6 class="d-block">Marcas</h6>
+                        <div id="marcas-container">
+                            <!--Injetar com javascript-->
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <h6 class="d-block">Modelos</h6>
+                        <div id="modelos-container">
+                            <!--Injetar com javascript-->
+                        </div>
+                    </div>
+
+                    <!-- resultados -->
+
+                    <div class="col-sm-4 col-12">
+                        <h6 class="d-block">Ano</h6>
+                        <label for="ano-minimo">De:</label>
+                        <input type="number" id="ano-minimo" class="input-filtro">
+                        <label for="ano-maximo">Até:</label>
+                        <input type="number" id="ano-maximo" class="input-filtro">
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <h6 class="d-block">Preço</h6>
+                        <label for="preco-minimo">De:</label>
+                        <input type="number" id="preco-minimo" class="input-filtro">
+                        <label for="preco-maximo">Até:</label>
+                        <input type="number" id="preco-maximo" class="input-filtro">
+                    </div>
+                    <button class="btn btn-dark pesquisa-estoque botoes-estoque" id="aplicar-filtros">Aplicar
+                        filtros</button>
+                    <button class="btn border-dark btn-light text-black botoes-estoque" id="limpar-filtros">Limpar
+                        filtros</button>
+                </div>
+            </div>
+            <div class="mb-5">
+                <div id="liveAlertPlaceholder"></div>
+                <!--Injetar com javascript-->
+                <div id="estoque">
+                    <!--Injetar com javascript-->
+                </div>
+                <div id="paginacao" class="text-center">
+                    <!--Injetar com javascript-->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="janela-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="titulo-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="titulo-modal">Registrar interesse</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" onsubmit="return false;">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nome">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" id="telefone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="endereco" class="form-label">Endereco</label>
+                            <input type="text" class="form-control" id="endereco">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button id="botao-enviar" type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center text-lg-start bgCinza text-muted pt-1">
+        <div class="container-fluid text-right text-black">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Grid coluna -->
+                <div class="col-md-3">
+                    <!-- logo -->
+                    <img src="/img/logotipo-preto.png" class="img-fluid " alt="Imagem logo">
+                </div>
+                <!-- Coluna do Grid-->
+                <div class="col-md-3">
+                    <!-- Textos do Footer -->
+                    <h6 class="text-uppercase mb-2 mt-4 tituloFooter"><strong>
+                            Horário de Atendimento</strong></h6>
+                    <p>Segunda a Sexta das 8:00 as 18:00
+                    </p>
+                    <p>Sábado das 8:00 as 12:00
+                    </p>
+                    <h6 class="text-uppercase fw-bold mt-4 tituloFooter">
+                        Endereço
+                    </h6>
+                    <p>Rua 7 de setembro, 1562</p>
+                    <p>Blumenau-SC</p>
+                    <p>89034-992</p>
+                </div>
+                <!-- Coluna do grid -->
+                <div class="col-md-3">
+                    <!-- Textos -->
+                    <h6 class="text-uppercase fw-bold mt-4 tituloFooter">
+                        Contato
+                    </h6>
+                    <p>
+                        (47) 3367-4560
+                    </p>
+                    <p>
+                        (47) 99614-9202
+                    </p>
+                    <p>
+                        contato@shopauto.com.br
+                    </p>
+                </div>
+                <!-- Coluna do Grid -->
+                <div class="col-md-3">
+                    <!-- Texto -->
+                    <h6 class="text-uppercase fw-bold pr-8 mt-4  tituloFooter">
+                        Siga-nos nas redes</h6>
+                    <!-- Ícones das redes sociais -->
+                    <p><a href=""><i class="bi bi-instagram icone"></i></a>
+                        <a href=""><i class="bi bi-facebook icone"></i>
+                    </p></a>
+                    <a href=""><img src="/img/whats.png" class="whatslogo" alt="Logo do Whatsapp"></a>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Texto de Copyright -->
+        <div class="text-center text-black p-4" style="background-color: #D6D6D6;">
+            Desenvolvido por © <b>Grupo 2</b> | Todos os direitos reservados
+        </div>
+    </footer>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/estoque.js"></script>
+</body>
+
+</html>

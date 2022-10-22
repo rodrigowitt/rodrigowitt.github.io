@@ -5,10 +5,12 @@ const estoque = document.getElementById("estoque");
 var atual = 1;
 var max = 1;
 const campo_alert = document.getElementById("liveAlertPlaceholder");
+var marcas_carro;
+var modelos_carro;
 
 //Função para gerar a estrutura recebendo a lista como parâmetro
 function gerarEstrutura(lista_carros) {
-    var max = Math.ceil(lista_carros.length / 9);
+    max = Math.ceil(lista_carros.length / 9);
     let estrutura = "";
     document.querySelector("#paginacao").innerHTML = `<a href="#" onclick="anterior()">&lt;</a>&nbsp;&nbsp;`;
     for (let i = 0; i < max; i++) {
@@ -20,16 +22,16 @@ function gerarEstrutura(lista_carros) {
                             <div class="row">
                             <div class="col col-sm-4 col-12 pb-5">
                                 <div class="card" style="width: 100%;">
-                                    <img src="img/${lista_carros[j].nome_imagem}" class="card-img-top" alt="${lista_carros[j].nome_imagem}" style="width: 100%; height: 275px;">
+                                    <img src="img/${lista_carros[j].modelo.toLowerCase()}/${lista_carros[j].nome_imagem[0]}" class="card-img-top" alt="${lista_carros[j].nome_imagem[0]}" style="width: 100%; height: 275px;">
                                     <div class="card-body">
                                         <div class="text-start">
                                             <h5 class="card-title">${lista_carros[j].modelo} - ${lista_carros[j].ano}</h5>
                                             <span class="card-text descricao">${lista_carros[j].descricao}</span>
                                             <span class="card-text descricao">${lista_carros[j].ano} | ${lista_carros[j].quilometragem} km</span>
-                                            <span class="preco">R$ ${lista_carros[j].preco.toFixed(2)}</span>
+                                            <span class="preco">R$ ${lista_carros[j].preco}</span>
                                         </div>
                                         <div class="text-end">
-                                            <a href="#" class="btn btn-outline-dark btn-sm" rel="${lista_carros[j].id}">VER MAIS</a>
+                                            <a href="#" class="btn btn-outline-dark btn-sm botao-vermais" rel="${lista_carros[j].id}">VER MAIS</a>
                                         </div>
                                     </div>
                                 </div>
@@ -41,16 +43,16 @@ function gerarEstrutura(lista_carros) {
                     estrutura += `
                             <div class="col col-sm-4 col-12 pb-5">
                                 <div class="card" style="width: 100%;">
-                                    <img src="img/${lista_carros[j + 1].nome_imagem}" class="card-img-top" alt="${lista_carros[j + 1].nome_imagem}" style="width: 100%; height: 275px;">
+                                    <img src="img/${lista_carros[j + 1].modelo.toLowerCase()}/${lista_carros[j + 1].nome_imagem[0]}" class="card-img-top" alt="${lista_carros[j + 1].nome_imagem[0]}" style="width: 100%; height: 275px;">
                                     <div class="card-body">
                                         <div class="text-start">
                                             <h5 class="card-title">${lista_carros[j + 1].modelo} - ${lista_carros[j + 1].ano}</h5>
                                             <span class="card-text descricao">${lista_carros[j + 1].descricao}</span>
                                             <span class="card-text descricao">${lista_carros[j + 1].ano} | ${lista_carros[j + 1].quilometragem} km</span>
-                                            <span class="preco">R$ ${lista_carros[j + 1].preco.toFixed(2)}</span>
+                                            <span class="preco">R$ ${lista_carros[j + 1].preco}</span>
                                         </div>
                                         <div class="text-end">
-                                            <a href="#" class="btn btn-outline-dark btn-sm" rel="${lista_carros[i + 1].id}">VER MAIS</a>
+                                            <a href="#" class="btn btn-outline-dark btn-sm botao-vermais" rel="${lista_carros[j + 1].id}">VER MAIS</a>
                                         </div>
                                     </div>
                                 </div>
@@ -62,16 +64,16 @@ function gerarEstrutura(lista_carros) {
                     estrutura += `
                             <div class="col col-sm-4 col-12 pb-5">
                                 <div class="card" style="width: 100%;">
-                                    <img src="img/${lista_carros[j + 2].nome_imagem}" class="card-img-top" alt="${lista_carros[j + 2].nome_imagem}" style="width: 100%; height: 275px;">
+                                    <img src="img/${lista_carros[j + 2].modelo.toLowerCase()}/${lista_carros[j + 2].nome_imagem[0]}" class="card-img-top" alt="${lista_carros[j + 2].nome_imagem[0]}" style="width: 100%; height: 275px;">
                                     <div class="card-body">
                                         <div class="text-start">
                                             <h5 class="card-title">${lista_carros[j + 2].modelo} - ${lista_carros[j + 2].ano}</h5>
                                             <span class="card-text descricao">${lista_carros[j + 2].descricao}</span>
                                             <span class="card-text descricao">${lista_carros[j + 2].ano} | ${lista_carros[j + 2].quilometragem} km</span>
-                                            <span class="preco">R$ ${lista_carros[j + 2].preco.toFixed(2)}</span>
+                                            <span class="preco">R$ ${lista_carros[j + 2].preco}</span>
                                         </div>
                                         <div class="text-end">
-                                            <a href="#" class="btn btn-outline-dark btn-sm" rel="${lista_carros[j + 2].id}">VER MAIS</a>
+                                            <a href="#" class="btn btn-outline-dark btn-sm botao-vermais" rel="${lista_carros[j + 2].id}">VER MAIS</a>
                                         </div>
                                     </div>
                                 </div>
@@ -85,12 +87,12 @@ function gerarEstrutura(lista_carros) {
         document.querySelector("#paginacao").innerHTML += (i + 1 == 1) ? `<a href="#" class="links-paginacao" id="link-${i + 1}" onclick="paginar('pagina-${i + 1}')" style="color: red; text-decoration: underline;">${i + 1}</a>&nbsp;&nbsp;` :
             `<a href="#" class="links-paginacao" id="link-${i + 1}" onclick="paginar('pagina-${i + 1}')" style=>${i + 1}</a>&nbsp;&nbsp;`;
 
-        }
+    }
     document.querySelector("#paginacao").innerHTML += `<a href="#" onclick="posterior()">&gt;</a>`;
     return estrutura;
 }
 
-function gerarAlert(tipo, mensagem){
+function gerarAlert(tipo, mensagem) {
     if (campo_alert.innerHTML == "") {
         const wrapper = document.createElement('div')
         wrapper.innerHTML = [
@@ -150,23 +152,38 @@ function carregarValores() {
     const marcas = document.querySelector("#marcas-container");
     const modelos = document.querySelector("#modelos-container");
     //Criar sets com as marcas e modelos existentes
-    let marcas_carro = new Set(carros.map(carro => carro.marca));
-    let modelos_carro = new Set(carros.map(carro => carro.modelo));
+    marcas_carro = new Set(carros.map(carro => carro.marca));
+    modelos_carro = new Set(carros.map(carro => carro.modelo));
 
     //Gerar as estruturas e inseri-las na tela
     marcas_carro.forEach(marca => {
-        marcas.innerHTML += `<label class="d-block"><input class="marcas" type="checkbox" value="${marca}"> ${marca}</label>`;
+        marcas.innerHTML += `<option value="${marca}">${marca}</option>`;
     });
     modelos_carro.forEach(modelo => {
-        modelos.innerHTML += `<label class="d-block"><input class="modelos" type="checkbox" value="${modelo}"> ${modelo}</label>`;
+        modelos.innerHTML += `<option value="${modelo}">${modelo}</option>`;
     });
+
+    document.querySelectorAll(".botao-vermais").forEach(a => a.addEventListener("click", vermais));
+
+    const select = document.querySelector('select[name=modelos-container]');
+    new lc_select(select, {
+        wrap_width: '100%',
+        min_for_search: 3,
+        pre_placeh_opt: true,
+    });
+    const select2 = document.querySelector('select[name=marcas-container]');
+    new lc_select(select2, {
+        wrap_width: '100%',
+        min_for_search: 3,
+        pre_placeh_opt: true,
+    }); 
 }
 
 //Pegar evento de clique do botão de pesquisar modelos ou marcas
 document.querySelector("#bt-pesquisa").addEventListener("click", function () {
     campo_alert.innerHTML = "";
     //Pegar o valor informado pelo usuário no input
-    const pesquisa = document.getElementById("pesquisa").value;
+    const pesquisa = document.getElementById("pesquisaEstoque").value;
 
     // Gerar uma lista de carros baseada nos valores informados
     const lista_carros = carros.filter(function (carro) {
@@ -175,8 +192,9 @@ document.querySelector("#bt-pesquisa").addEventListener("click", function () {
 
     //Se a lista possuir um registro: Gerar estrutura, caso contrário informar erro
     if (lista_carros.length > 0) {
-        gerarAlert("success", `${lista_carros.length} carros encontrados!!`);
+        gerarAlert("success", `${lista_carros.length} carro(s) encontrados!!`);
         estoque.innerHTML = gerarEstrutura(lista_carros);
+        atual = 1;
     } else {
         if (campo_alert.innerHTML == "") {
             const wrapper = document.createElement('div')
@@ -192,46 +210,51 @@ document.querySelector("#bt-pesquisa").addEventListener("click", function () {
     }
 });
 
+function vermais() {
+    const id = this.rel
+    carro = carros.filter(function (carro) {
+        return carro.id == id;
+    })[0];
+
+    sessionStorage.setItem("CARRO", JSON.stringify(carro));
+    window.location = "carro.html"
+}
+
 //Adicionar evento de clique ao botão de aplicar os filtros
 document.querySelector("#aplicar-filtros").addEventListener("click", function () {
     campo_alert.innerHTML = "";
     //Iniciar variaveis
-    var lista_marcas = [];
-    var lista_modelos = [];
+    var listaMarcas = [];
+    var listaModelos = [];
+    document.querySelectorAll(".lcslt-multi-selected").forEach(d => (marcas_carro.has(d.title) ? listaMarcas.push(d.title) : listaModelos.push(d.title)));
     let anoMin = document.getElementById("ano-minimo").value;
     let anoMax = document.getElementById("ano-maximo").value;
     let precoMin = document.getElementById("preco-minimo").value;
     let precoMax = document.getElementById("preco-maximo").value;
 
-    //Pegar as marcas e modelos selecionados, caso estejam selecionados: Adicionar à lista
-    for (let marca of document.querySelectorAll(".marcas")) {
-        marca.checked ? lista_marcas.push(marca.value) : null;
-    }
-    for (let modelo of document.querySelectorAll(".modelos")) {
-        modelo.checked ? lista_modelos.push(modelo.value) : null;
-    }
+
 
     //Aplicar o primeiro filtro, verificar as marcas
     let filtro = carros.filter(function (carro) {
-        if (lista_marcas.length > 0) {
-            return lista_marcas.includes(carro.marca.trim());
+        if (listaMarcas.length > 0) {
+            return listaMarcas.includes(carro.marca.trim());
         } else {
             return true;
         }
     }).filter(function (carro) { //Segundo filtro, verificar os modelos
-        if (lista_modelos.length > 0) {
-            return lista_modelos.includes(carro.modelo.trim());
+        if (listaModelos.length > 0) {
+            return listaModelos.includes(carro.modelo.trim());
         } else {
             return true;
         }
     }).filter(function (carro) { //Terceiro filtro, verificar o ano
         if (anoMin || anoMax) {
             if (anoMin && !anoMax) {
-                return carro.ano >= anoMin;
+                return parseInt(carro.ano.split("/")[0]) >= anoMin;
             } else if (!anoMin && anoMax) {
-                return carro.ano <= anoMax;
+                return parseInt(carro.ano.split("/")[1]) <= anoMax;
             } else {
-                return carro.ano >= anoMin && carro.ano <= anoMax;
+                return parseInt(carro.ano.split("/")[0]) >= anoMin && parseInt(carro.ano.split("/")[1]) <= anoMax;
             }
         } else {
             return true;
@@ -239,11 +262,12 @@ document.querySelector("#aplicar-filtros").addEventListener("click", function ()
     }).filter(function (carro) { //Quarto filtro, verificar o preço
         if (precoMin || precoMax) {
             if (precoMin && !precoMax) {
-                return carro.preco >= precoMin;
+                return carro.preco >= parseFloat(precoMin);
             } else if (!precoMin && precoMax) {
-                return carro.preco <= precoMax;
+                return carro.preco <= parseFloat(precoMax);
             } else {
-                return carro.preco >= precoMin && carro.preco <= precoMax;
+
+                return carro.preco >= parseFloat(precoMin) && carro.preco <= parseFloat(precoMax);
             }
         } else {
             return true;
@@ -252,8 +276,9 @@ document.querySelector("#aplicar-filtros").addEventListener("click", function ()
 
     //Caso o filtro gere uma lista com mais de um valor, inseri-los na tela, caso contrário informar erro
     if (filtro.length > 0) {
-        gerarAlert("success", `${filtro.length} carros encontrados!!`);
+        gerarAlert("success", `${filtro.length} carro(s) encontrados!!`);
         estoque.innerHTML = gerarEstrutura(filtro);
+        atual = 1;
     } else {
         gerarAlert("danger", "Não encontramos nenhum veículo com este padrão de filtros!!")
     }
@@ -265,23 +290,8 @@ function modal(modelo) {
     document.querySelector("#botao-enviar").setAttribute("rel", modelo);
 }
 
-//Adicionar evento de clique ao botão de enviar da janela modal (Não possui efeitos práticos)
-document.querySelector("#botao-enviar").addEventListener("click", function () {
-    let dados = {
-        nome: document.getElementById("nome").value,
-        email: document.getElementById("email").value,
-        telefone: document.getElementById("telefone").value,
-        endereco: document.getElementById("endereco").value
-    }
-
-    interesses.push(dados);
-    alert("Interesse registrado com sucesso!")
-});
-
 //Adicionar evento de clique ao botão de limpar os filtros (Reiniciar os valores)
 document.querySelector("#limpar-filtros").addEventListener("click", function () {
-    document.querySelectorAll(".marcas").forEach(input => input.checked = false);
-    document.querySelectorAll(".modelos").forEach(input => input.checked = false);
     document.getElementById("ano-minimo").value = "";
     document.getElementById("ano-maximo").value = "";
     document.getElementById("preco-minimo").value = "";

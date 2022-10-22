@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/light.css">
     <link rel="stylesheet" href="icofont/icofont.min.css">
     <link rel="shortcut icon" href="/img/fav-autoshop.jpg" type="image/x-icon">
-    <title>Estoque</title>
+    <title>Avaliação Gratuita</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
             <a class="navbar-brand" href="index.html"><img src="/img/logotipo-branco.png" width="200px"
                     alt="Logo AutoShop"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="nnavbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icofont-navigation-menu"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -47,73 +47,55 @@
         </div>
     </nav>
 
-    <!-- Nikolas -->
+    <!-- Avaliação por Emylli -->
     <main>
-        <div class="container">
-            <div class="mb-5 w-100">
-                <div class="cabecalho-estoque">
-                    <h1>Estoque</h1>
-                    <input type="text" id="pesquisaEstoque" placeholder="Pesquisar marcas ou modelos">
-                    <button id="bt-pesquisa" class="btn btn-dark pesquisa-estoque botoes-estoque">PESQUISAR</button>
-                    <button class="btn border-dark btn-light text-black botoes-estoque" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#filtros-collapse" aria-expanded="false"
-                        aria-controls="filtros-collapse">
-                        FILTRAR
-                    </button>
-                </div>
-            </div>
+        <div class="container espacamentoAvaliacao">
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="needs-validation">
 
-            <div class="collapse" id="filtros-collapse">
-                <div class="card card-body" style="display: flex;">
-                    <div class="col-sm-4 col-12">
-                        <h6 class="d-block">Marcas</h6>
-                        <select name="marcas-container" id="marcas-container" multiple>
+                        <h3 class="mt-5 mb-4 text-center">Simulação de financiamento grátis de veículos</h3>
+                        <div class="form-group">
+                            <label for="valorInicial">Valor inicial:</label>
+                            <input type="text" class="form-control" id="valorInicial" placeholder="R$ 0,00" required/>
+                            <div class="valid-feedback">Válido.</div>
+                            <div class="invalid-feedback">Por favor, preencha este campo.</div>
+                        </div>
 
-                        </select>
-                    </div>
-                    <div class="col-sm-4 col-12">
-                        <h6 class="d-block">Modelos</h6>
-                        <select name="modelos-container" id="modelos-container" multiple>
+                        <div class="form-group">
+                            <label for="taxaJuro">Taxa de juros:</label>
+                            <input type="number" class="form-control" id="juroMensal" placeholder="0,00 %" required />
+                            <div class="valid-feedback">Válido.</div>
+                            <div class="invalid-feedback">Por favor, preencha este campo.</div>
+                        </div>
 
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="jurosMensais">Número de parcelas mensais:</label>
+                            <input type="text" class="form-control" id="meses" type="number"
+                                 placeholder="0" required />
+                            <div class="valid-feedback">Válido.</div>
+                            <div class="invalid-feedback">Por favor, preencha este campo.</div>
+                        </div>
 
-                    <div class="col-sm-4 col-12">
-                        <h6 class="d-block">Ano</h6>
-                        <label for="ano-minimo">De:</label>
-                        <input type="number" id="ano-minimo" class="input-filtro">
-                        <label for="ano-maximo">Até:</label>
-                        <input type="number" id="ano-maximo" class="input-filtro">
+                        <button class="btn btn-dark tituloBranco" type="submit" value="submit" id="enviar-botao">
+                            <a href="#" class="botaoAvaliacao" onclick="calculoSimulacao()" id="total"
+                                value="calculoSimulacao">Calcular</a>
+                        </button>
+
+                    </form>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="pagamentoFinal"></div>
+                        </div>
                     </div>
-                    <div class="col-sm-4 col-12">
-                        <h6 class="d-block">Preço</h6>
-                        <label for="preco-minimo">De:</label>
-                        <input type="number" id="preco-minimo" class="input-filtro">
-                        <label for="preco-maximo">Até:</label>
-                        <input type="number" id="preco-maximo" class="input-filtro">
-                    </div>
-                    <button class="btn btn-dark pesquisa-estoque botoes-estoque" id="aplicar-filtros">Aplicar
-                        filtros</button>
-                    <button class="btn border-dark btn-light text-black botoes-estoque" id="limpar-filtros">Limpar
-                        filtros</button>
                 </div>
-            </div>
-            <div class="mb-5">
-                <div id="liveAlertPlaceholder">
-                    <!--Injetar com javascript-->
-                </div>
-                <div id="estoque">
-                    <!--Injetar com javascript-->
-                </div>
-                <div id="paginacao" class="text-center">
-                    <!--Injetar com javascript-->
-                </div>
-            </div>
-        </div>
+            </div> <!-- row -->
+        </div> <!-- container espacamentoAvaliacao -->
     </main>
 
     <!-- Footer por Rodrigo -->
-    <footer class="text-center text-lg-start bgCinza text-muted pt-1">
+    <footer class="text-center text-lg-start bgCinza text-muted pt-5 financieFooter">
         <div class="container-fluid text-right text-black">
             <!-- Grid row -->
             <div class="row mt-3">
@@ -175,11 +157,11 @@
             Desenvolvido por © <b>Grupo 2</b> | Todos os direitos reservados
         </div>
     </footer>
-    
+
+    <script src="js/avaliacao.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/lc_select.min.js"></script>
     <script src="js/db.js"></script>
-    <script src="js/estoque.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
